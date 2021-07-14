@@ -11,9 +11,8 @@
 | first_name         | string  | null: false |
 | last_name_reading  | string  | null: false |
 | first_name_reading | string  | null: false |
-| birth_date_y       | integer | null: false |
-| birth_date_m       | integer | null: false |
-| birth_date_d       | integer | null: false |
+| birth_date         | date    | null: false |
+
 
 ### Association
 
@@ -22,17 +21,17 @@
 
 ## Itemsテーブル
 
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| title          | string     | null: false |
-| detail         | text       | null: false |
-| category       | integer    | null: false |
-| condition      | integer    | null: false |
-| handling_payer | integer    | null: false |
-| address_from   | integer    | null: false |
-| lead_time      | integer    | null: false |
-| price          | integer    | null: false |
-| sell_user      | references |             |
+| Column            | Type       | Options           |
+| ----------------- | ---------- | ----------------- |
+| title             | string     | null: false       |
+| detail            | text       | null: false       |
+| category_id       | integer    | null: false       |
+| condition_id      | integer    | null: false       |
+| handling_payer_id | integer    | null: false       |
+| prefecture_id     | integer    | null: false       |
+| lead_time_id      | integer    | null: false       |
+| price             | integer    | null: false       |
+| user              | references | foreign_key: true |
 
 ### Association
 
@@ -41,10 +40,10 @@
 
 ## Purchasesテーブル
 
-| Column      | Type       | Options     |
-| ----------- | ---------- | ----------- |
-| bought_user | references |             |
-| bought_item | references |             |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
@@ -54,15 +53,15 @@
 
 ## Addressesテーブル
 
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| postal_code   | string     | null: false |
-| prefecture    | integer    | null: false |
-| city          | string     | null: false |
-| house_number  | string     | null: false |
-| building_name | string     |             |
-| phone_number  | string     | null: false |
-| purchase      | references |             |
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| postal_code   | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| city          | string     | null: false       |
+| house_number  | string     | null: false       |
+| building_name | string     |                   |
+| phone_number  | string     | null: false       |
+| purchase      | references | foreign_key: true |
 
 ### Association
 - belongs_to :purchase
