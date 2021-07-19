@@ -33,8 +33,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it 'category_idが1では登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
       it 'condition_idが空では登録できない' do
         @item.condition_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+      it 'condition_idが1では登録できない' do
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
@@ -43,13 +53,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Handling payer can't be blank")
       end
+      it 'handling_payer_idが1では登録できない' do
+        @item.handling_payer_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Handling payer can't be blank")
+      end
       it 'prefecture_idが空では登録できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it 'prefecture_idが1では登録できない' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
       it 'lead_time_idが空では登録できない' do
         @item.lead_time_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Lead time can't be blank")
+      end
+      it 'lead_time_idが1では登録できない' do
+        @item.lead_time_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Lead time can't be blank")
       end
