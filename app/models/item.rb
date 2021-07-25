@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :handling_payer
   belongs_to :prefecture
   belongs_to :lead_time
+  has_one :purchase
 
   with_options presence: true do
     validates :title
@@ -29,6 +30,6 @@ class Item < ApplicationRecord
 
   validates :price, inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
   validates :price,
-            numericality: { only_integer: true, format: { with: /\A[0-9]+\Z/ },
+            numericality: { only_integer: true, format: { with: /\A[0-9]+\z/ },
                             message: 'is invalid. Input half-width characters' }
 end

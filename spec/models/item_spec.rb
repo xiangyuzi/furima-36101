@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
   end
 
   describe '出品商品の情報登録' do
-    context '出品登録できるとき' do
+    context '出品登録ができるとき' do
       it 'imageとtitle、detail、category_id、condition_id、handling_payer_id、prefecture_id、lead_time_id、price、user_idがあれば登録できる' do
         expect(@item).to be_valid
       end
