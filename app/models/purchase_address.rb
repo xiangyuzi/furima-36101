@@ -13,8 +13,8 @@ class PurchaseAddress
     validates :token
   end
   validates :phone_number, numericality: { only_integer: true, message: 'is invalid. Input only number' }
-  validates :phone_number, length: {maximum: 11, message: 'is too long' }
-  
+  validates :phone_number, length: { maximum: 11, message: 'is too long' }
+
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number,

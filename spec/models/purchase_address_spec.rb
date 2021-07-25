@@ -28,12 +28,12 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'postal_codeが全角文字だと登録できない' do
         @purchase_address.postal_code = '１２３−４５６７'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Postal code is invalid. Enter it as follows(e.g. 123-4567)")
+        expect(@purchase_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows(e.g. 123-4567)')
       end
       it 'postal_codeがハイフンがないと登録できない' do
         @purchase_address.postal_code = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Postal code is invalid. Enter it as follows(e.g. 123-4567)")
+        expect(@purchase_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows(e.g. 123-4567)')
       end
       it 'prefecture_idが空だと登録できない' do
         @purchase_address.prefecture_id = ''
@@ -63,17 +63,17 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'phone_numberが全角数字だと登録できない' do
         @purchase_address.phone_number = '１２３４５６７８９０'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
       it 'phone_numberが10文字未満だと登録できない' do
         @purchase_address.phone_number = '123456789'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is too short")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is too short')
       end
       it 'phone_numberが12文字以上だと登録できない' do
         @purchase_address.phone_number = '123456789012'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is too long")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is too long')
       end
       it 'user_idが空だと登録できない' do
         @purchase_address.user_id = nil
